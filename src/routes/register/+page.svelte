@@ -473,7 +473,7 @@
 	}
 
 	.flare {
-		z-index: 0;
+		z-index: -1;
 		position: absolute;
 		overflow: hidden;
 	}
@@ -587,6 +587,7 @@
 
 	@media (min-width: 880px) {
 
+		
 		.modal-content {
 			width: 699px;
 height: 664px;
@@ -674,6 +675,10 @@ height: 664px;
 			top: 308px;
 			left: 1080px;
 			animation-delay: 0.6s;
+		}
+
+		.res-con {
+			z-index: 2;
 		}
 
 		.star.sa2 {
