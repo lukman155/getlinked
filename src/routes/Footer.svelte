@@ -4,42 +4,46 @@
 	<img class="star s3" src="star3-footer-mb.png" alt="star" />
 	<img class="star s4" src="star4-footer-mb.png" alt="star" />
 
-	<h1>
-		get<span>linked</span>
-	</h1>
+	<div class="res-con">
+		<div class="intro-con">
+			<h1>
+				get<span>linked</span>
+			</h1>
 
-	<p>
-		Getlinked Tech Hackathon is a technology innovation program established by a group of
-		organizations with the aim of showcasing young and talented individuals in the field of
-		technology
-	</p>
+			<p>
+				Getlinked Tech Hackathon is a technology innovation program established by a group of
+				organizations with the aim of showcasing young and talented individuals in the field of
+				technology
+			</p>
 
-	<div class="termpri">
-		<a href="/" class="term-link">Terms of Use</a>
-		<div class="v-line">|</div>
-		<a href="/" class="privacy-link">Privacy Policy</a>
-	</div>
+			<div class="termpri">
+				<a href="/" class="term-link">Terms of Use</a>
+				<div class="v-line">|</div>
+				<a href="/" class="privacy-link">Privacy Policy</a>
+			</div>
+		</div>
 
-	<div class="nav-links">
-		<h2>Useful Links</h2>
-		<a href="/" class="term-link">Overview</a>
-		<a href="/" class="term-link">Timeline</a>
-		<a href="/" class="term-link">FAQs</a>
-		<a href="/register" class="term-link">Register</a>
-		<div class="socials">
-			<h3>Follow us</h3>
-			<a href="/" class="insta"><i class="fab fa-instagram" /></a>
-			<a href="/" class="x"
-				><svg class="x-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
-					><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-					<!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-					<path
-						d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-					/></svg
-				></a
-			>
-			<a href="/" class="facebook"><i class="fab fa-facebook-f" /></a>
-			<a href="/" class="linkedin"><i class="fab fa-linkedin-in" /></a>
+		<div class="nav-links">
+			<h2>Useful Links</h2>
+			<a href="/" class="term-link">Overview</a>
+			<a href="/" class="term-link">Timeline</a>
+			<a href="/" class="term-link">FAQs</a>
+			<a href="/register" class="term-link">Register</a>
+			<div class="socials">
+				<h3>Follow us</h3>
+				<a href="/" class="insta"><i class="fab fa-instagram" /></a>
+				<a href="/" class="x"
+					><svg class="x-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
+						><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+						<!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+						<path
+							d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+						/></svg
+					></a
+				>
+				<a href="/" class="facebook"><i class="fab fa-facebook-f" /></a>
+				<a href="/" class="linkedin"><i class="fab fa-linkedin-in" /></a>
+			</div>
 		</div>
 
 		<div class="contact">
@@ -84,6 +88,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="foot-wrap">
 		<p class="foot">All rights reserved. © getlinked Ltd.</p>
 	</div>
@@ -192,6 +197,7 @@
 		justify-content: center;
 		padding: 0 60px;
 		background: #100b20;
+		z-index: 0;
 	}
 
 	.star {
@@ -268,5 +274,79 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: 172.4%;
+	}
+
+	.socials {
+		justify-content: flex-start;
+	}
+
+	@media (min-width: 880px) {
+		.star.s1 {
+			width: 15px;
+			height: 18px;
+			top: 107px;
+			left: 120px;
+			animation-delay: 0.6s;
+		}
+
+		.star.s2 {
+			width: 15px;
+			height: 18px;
+			top: 99px;
+			right: 440px;
+			animation-delay: 1.2s;
+		}
+
+		.star.s3 {
+			width: 15px;
+			height: 18px;
+			bottom: 140px;
+			right: 137px;
+			animation-delay: 0s;
+		}
+
+		.star.s4 {
+			width: 15px;
+			height: 18px;
+			bottom: 94px;
+			left: 774px;
+			animation-delay: 1.9s;
+		}
+
+		.footer-page {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-start;
+
+			padding: 0;
+		}
+
+		.foot {
+			margin-top: 54px;
+			margin-bottom: 54px;
+		}
+
+		.termpri {
+			justify-content: flex-start;
+			text-align: left;
+		}
+
+		h1 {
+			margin: 0;
+			margin-bottom: 10px;
+		}
+		.res-con {
+			z-index: 3;
+			display: flex;
+			padding: 70px 230px 0px;
+
+			align-items: flex-start;
+			justify-content: space-between;
+		}
+
+		.intro-con {
+			width: 412px;
+		}
 	}
 </style>

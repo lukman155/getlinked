@@ -238,4 +238,81 @@
 		font-weight: 400;
 		line-height: 20.5px; /* 170.833% */
 	}
+
+	@media (min-width: 880px) {
+		.partner-page {
+			height: 972px;
+		}
+
+		.company-logo {
+			/* width: 1255px;
+			height: 560px; */
+			transform: scale(3);
+			margin: 0;
+			margin-top: 100px;
+		}
+		.f1 {
+			width: 1037px;
+			height: 948px;
+			left: -259px;
+			top: -114px;
+		}
+
+		.f2 {
+			width: 1037px;
+			height: 948px;
+			bottom: -400px;
+			right: -400px;
+			left: auto;
+		}
+
+		.star.s1 {
+			width: 26px;
+			height: 32px;
+			top: 270px;
+			left: 330px;
+			animation-delay: 0.6s;
+		}
+
+		.star.s2 {
+			width: 21px;
+			height: 25px;
+			top: auto;
+			bottom: 570px;
+			right: 45%;
+			animation-delay: 1.2s;
+		}
+
+		.star.s3 {
+			width: 26px;
+			height: 32px;
+			bottom: 264px;
+			left: auto;
+			right: 45%;
+			animation-delay: 0s;
+		}
+
+		h2 {
+			color: #fff;
+			font-family: 'ClashDisplay-Bold';
+			font-size: 32px;
+			font-style: normal;
+			font-weight: 700;
+			margin-top: 114px;
+			margin-bottom: 24px;
+		}
+
+		.partner-page > p {
+			width: 452px;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 27.5px;
+
+			margin-bottom: 130px;
+		}
+	}
+
+	@media (min-width: 1200px) {
+	}
 </style>

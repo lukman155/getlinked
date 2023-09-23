@@ -207,6 +207,8 @@
 	}
 
 	.hero-page {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+
 		position: relative;
 		display: flex;
 		flex-direction: column;

@@ -70,11 +70,6 @@
 	.svg {
 		display: none;
 	}
-	.res-con {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
 
 	.judge-page {
 		border-top: 1px solid rgba(255, 255, 255, 0.18);
@@ -213,6 +208,12 @@
 		border-radius: 4px;
 		background: linear-gradient(270deg, #903aff 0%, #d434fe 56.42%, #ff26b9 99.99%, #fe34b9 100%);
 		margin-bottom: 60px;
+	}
+
+	.res-con {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	@media (min-width: 880px) {

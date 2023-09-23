@@ -8,6 +8,31 @@
 	<img class="star s2" src="star2-rules-mb.png" alt="star" />
 	<img class="star s3" src="star3-rules-mb.png" alt="star" />
 
+	<div class="svg">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="134"
+			height="134"
+			viewBox="0 0 134 134"
+			fill="none"
+		>
+			<circle cx="67" cy="67" r="67" fill="url(#paint0_linear_70_6)" />
+			<defs>
+				<linearGradient
+					id="paint0_linear_70_6"
+					x1="134"
+					y1="67"
+					x2="3.69183"
+					y2="67"
+					gradientUnits="userSpaceOnUse"
+				>
+					<stop stop-color="#8F01FE" />
+					<stop offset="1" stop-color="#FF2674" />
+				</linearGradient>
+			</defs>
+		</svg>
+	</div>
+
 	<div class="woman-con">
 		<img class="woman" src="woman-rules.png" alt="woman" />
 	</div>
@@ -27,6 +52,9 @@
 </section>
 
 <style>
+	.svg {
+		display: none;
+	}
 	.rules-page {
 		border-top: 1px solid rgba(255, 255, 255, 0.18);
 		position: relative;
@@ -137,6 +165,14 @@
 	}
 
 	@media (min-width: 880px) {
+		.svg {
+			display: block;
+			position: absolute;
+			top: 170px;
+			right: 21%;
+			z-index: -1;
+		}
+
 		.star.s1 {
 			width: 26px;
 			height: 32px;

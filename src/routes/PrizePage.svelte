@@ -4,8 +4,9 @@
 	<img class="star s3" src="star3-prize-mb.png" alt="star" />
 	<img class="star s4" src="star4-prize-mb.png" alt="star" />
 	<img class="star s5" src="star5-prize-mb.png" alt="star" />
+	<img class="star s6" src="star5-prize-mb.png" alt="star" />
 	<img class="flare f1" src="flare1-prize-mb.png" alt="flare2" />
-	<img class="flare f2" src="flare2-prize-mb.png" alt="flare2" />
+	<img class="flare f2" src="flare1-prize-mb.png" alt="flare2" />
 
 	<img class="cup-img desk" src="cup-prize-mb.png" alt="cup" />
 	<div class="res-con">
@@ -187,10 +188,11 @@
 	}
 
 	.f2 {
-		width: 249px;
+		transform: rotate(180deg);
+		width: 449px;
 		height: 444px;
 		top: 441px;
-		left: 155px;
+		right: -160px;
 	}
 
 	/* Define animation keyframes */
@@ -269,6 +271,7 @@
 			gap: 24px;
 			margin: 0;
 			margin-top: 264px;
+			margin-bottom: 150px;
 		}
 
 		.medal {
@@ -323,38 +326,65 @@
 			width: 1037px;
 			height: 948px;
 			left: 0px;
-			top: 0px;
+			top: -80px;
 		}
 
 		.f2 {
-			width: 404px;
+			width: 804px;
 			height: 959px;
-			top: 300px;
-			right: -20px;
+			top: 200px;
 			left: auto;
+			right: -220px;
 		}
 
 		.star.s1 {
 			width: 26px;
 			height: 32px;
+
 			top: 80px;
-			left: 7%;
-			animation-delay: 0.3s;
+			left: 330px;
+			animation-delay: 0.6s;
 		}
 
 		.star.s2 {
-			width: 26px;
-			height: 32px;
-			top: 500px;
-			left: 33%;
+			width: 21px;
+			height: 25px;
+			top: 170px;
+			right: 320px;
+			animation-delay: 1.2s;
 		}
 
 		.star.s3 {
 			width: 26px;
 			height: 32px;
-			top: 820px;
-			left: 52%;
-			animation-delay: 0.9s;
+			top: 304px;
+			left: auto;
+			right: 748px;
+			animation-delay: 0s;
+		}
+
+		.star.s4 {
+			width: 26px;
+			height: 32px;
+			bottom: 625px;
+			right: 122px;
+			animation-delay: 0.2s;
+		}
+
+		.star.s5 {
+			width: 15px;
+			height: 18px;
+			bottom: 150px;
+			left: 307px;
+			animation-delay: 1.1s;
+		}
+
+		.star.s6 {
+			width: 26px;
+			height: 32px;
+			bottom: 107px;
+			right: 307px;
+			animation-delay: 1.1s;
 		}
 
 		.prize-page {

@@ -1,4 +1,5 @@
 <script>
+	import Navbar from './../Navbar.svelte';
 	let teamName = '';
 	let topic = '';
 	let email = '';
@@ -14,6 +15,8 @@
 	}
 </script>
 
+<Navbar />
+
 <section>
 	<img class="star s1" src="star1-con-mb.png" alt="star" />
 	<img class="star s2" src="star2-con-mb.png" alt="star" />
@@ -21,24 +24,49 @@
 	<img class="star s4" src="star4-con-mb.png" alt="star" />
 	<img class="flare f1" src="flare1-con-mb.png" alt="flare1" />
 
-	<a href="/" class="back-link"><img src="back-con-mb.png" alt="back-icon" /></a>
-	<h3>
-		Questions or need<br />
-		assistance?<br />
-		Let us know about it
-	</h3>
+	<a href="/" class="back-link mobile"><img src="back-con-mb.png" alt="back-icon" /></a>
 
-	<p>Email us below to any question related to our event</p>
+	<div class="form-con">
+		<h3 class="mobile">
+			Questions or need<br />
+			assistance?<br />
+			Let us know about it
+		</h3>
 
-	<form on:submit={handleSubmit}>
-		<input type="text" placeholder="Team name" bind:value={teamName} required />
-		<input type="text" placeholder="Topic" bind:value={topic} required />
-		<input type="email" placeholder="Email" bind:value={email} required />
-		<textarea placeholder="Message" bind:value={message} required />
-		<button type="submit">Submit</button>
-	</form>
+		<h3 class="desk">
+			Questions or need
+			assistance? <br>
+			Let us know about it
+		</h3>
+
+		<p>Email us below to any question related to our event</p>
+
+		<form on:submit={handleSubmit}>
+			<input type="text" placeholder="Team name" bind:value={teamName} required />
+			<input type="text" placeholder="Topic" bind:value={topic} required />
+			<input type="email" placeholder="Email" bind:value={email} required />
+			<textarea placeholder="Message" bind:value={message} required />
+			<button type="submit">Submit</button>
+		</form>
+	</div>
 
 	<div class="social">
+		<div class="desk">
+			<h2>Get in touch</h2>
+			<p>Contact<br />Information</p>
+			<address>
+				27,Alara Street <br />
+				Yaba 100012 <br />
+				Lagos State
+			</address>
+
+			<p>Call Us : 07067981819</p>
+
+			<p>
+				we are open from Monday-Friday <br />
+				08:00am - 05:00pm
+			</p>
+		</div>
 		<h4>Share on</h4>
 		<div class="logo">
 			<a href="/" class="insta"><i class="fab fa-instagram" /></a>
@@ -58,6 +86,12 @@
 </section>
 
 <style>
+
+
+.desk {
+	display: none;
+}
+
 	@keyframes fadeInOut {
 		0% {
 			opacity: 0; /* Start fully transparent */
@@ -256,5 +290,46 @@
 		transform: scale(1.2);
 		color: #d434fe;
 		fill: #d434fe;
+	}
+
+	@media (min-width: 880px) {
+
+		.mobile {
+			display: none;
+		}
+
+		.desk {
+			display: block;
+		}
+		section {
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: space-evenly;
+			padding:  120px 160px;
+		}
+
+		.form-con {
+			width: 517px;
+			height: 511px;
+			padding: 75px 90px;
+			border-radius: 12px;
+			background: rgba(255, 255, 255, 0.03);
+			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		}
+
+		textarea {width: 437px;height: 119px;}
+
+		.form-con > h3 {
+			margin: 0;
+			margin-bottom: 10px;
+		}
+
+		.form-con > p {
+			display: none;
+		}
+
+		.social {
+			margin: 0;
+		}
 	}
 </style>
