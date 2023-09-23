@@ -1,19 +1,82 @@
 <script>
 	import Navbar from '../Navbar.svelte';
 
-	let teamName = '';
-	let phone = '';
-	let email = '';
-	let projectTopic = '';
-	let category = '';
-	let groupSize = '';
-	let terms = false;
+	import { onMount } from 'svelte';
 
-	let modalVisible = false;
+    const baseUrl = 'https://backend.getlinked.ai';
 
-	function handleSubmit() {
-		modalVisible = true;
-	}
+    let teamName = '';
+    let phone = '';
+    let email = '';
+    let projectTopic = '';
+    let category = '';
+    let groupSize = '';
+    let terms = false;
+
+    let modalVisible = false;
+
+		let categories = [];
+
+    // Function to fetch categories from the API
+    async function fetchCategories() {
+        try {
+            const response = await fetch(`${baseUrl}/api/categories`);
+            const data = await response.json();
+            categories = data;
+						console.log(categories) // Assuming your API response has a 'categories' property
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    }
+
+    // Fetch categories when the component mounts
+    onMount(() => {
+        fetchCategories();
+    });
+
+		function handleSubmit() {
+        // Prepare your form data and make the registration POST request here
+        // Example:
+        const formData = {
+            teamName,
+            phone,
+            email,
+            projectTopic,
+            category,
+            groupSize,
+            terms,
+        };
+
+        // Make the POST request to your registration endpoint
+        fetch(`${baseUrl}/api/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((response) => {
+            // Handle the response here, e.g., show a success message and reset the form
+            if (response.ok) {
+                modalVisible = true; // Show success modal
+                // Reset form fields
+                teamName = '';
+                phone = '';
+                email = '';
+                projectTopic = '';
+                category = '';
+                groupSize = '';
+                terms = false;
+            } else {
+                // Handle the error response, e.g., show an error message
+                console.error('Registration failed');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
 </script>
 
 <Navbar />
@@ -21,6 +84,10 @@
 <section class="reg-page">
 	{#if modalVisible}
 		<div class="modal show">
+			<img class="star sa1" src="star1-reg-mb.png" alt="star" />
+	<img class="star sa2" src="star2-reg-mb.png" alt="star" />
+	<img class="star sa3" src="star3-reg-mb.png" alt="star" />
+	
 			<div class="modal-content">
 				<div class="image-con">
 					<img src="check-modal-responsive.png" alt="check" class="check-modal" />
@@ -41,7 +108,7 @@
 	<img class="star s1" src="star1-reg-mb.png" alt="star" />
 	<img class="star s2" src="star2-reg-mb.png" alt="star" />
 	<img class="star s3" src="star3-reg-mb.png" alt="star" />
-	<img class="star s4" src="star1-reg-mb.png" alt="star" />
+	<img class="star s4" src="star2-reg-mb.png" alt="star" />
 	<img class="star s5" src="star2-reg-mb.png" alt="star" />
 
 	<img class="flare f1" src="flare1-reg-mb.png" alt="flare1" />
@@ -95,16 +162,13 @@
 				<div class="option-form">
 					<div class="form-con">
 						<label for="cat">Category</label>
-
 						<select bind:value={category} id="cat">
-							<option value="" disabled hidden>Choose a category</option>
-							<option value="Web Development">Web Development</option>
-							<option value="Mobile Development">Mobile Development</option>
-							<option value="Data Science">Data Science</option>
-							<option value="Machine Learning">Machine Learning</option>
-							<option value="Artificial Intelligence">Artificial Intelligence</option>
+								<option value="" disabled hidden>Choose a category</option>
+								{#each categories as cat}
+										<option value={cat}>{cat}</option>
+								{/each}
 						</select>
-					</div>
+				</div>
 
 					<div class="form-con">
 						<label for="group">Group Size</label>
@@ -509,6 +573,26 @@
 	}
 
 	@media (min-width: 880px) {
+
+		.modal-content {
+			width: 699px;
+height: 664px;
+		}
+
+		.modal-content > .p1 {
+			font-size: 32px;
+			max-width: 574px;
+		}
+
+		.p2 {
+			font-size: 14px;
+			max-width: 300px;
+		}
+		.back-btn {
+			width: 274px;
+		}
+
+
 		form {
 			display: flex;
 			flex-wrap: wrap;
@@ -560,6 +644,7 @@
 			justify-content: space-around;
 			padding: 120px 160px;
 			margin: 0 auto;
+			gap: 80px;
 		}
 
 		.res-con {
@@ -568,6 +653,31 @@
 			border-radius: 12px;
 			background: rgba(255, 255, 255, 0.03);
 			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		}
+
+		.star.sa1 {
+			width: 21px;
+			height: 25px;
+			top: 308px;
+			left: 1080px;
+			animation-delay: 0.6s;
+		}
+
+		.star.sa2 {
+			width: 26px;
+			height: 32px;
+			top: 572px;
+			right: 933px;
+			left: auto;
+			animation-delay: 1.2s;
+		}
+
+		.star.sa3 {
+			width: 30px;
+			height: 36px;
+			bottom: 390px;
+			right: 406px;
+			animation-delay: 0s;
 		}
 
 		.star.s1 {
@@ -581,16 +691,17 @@
 		.star.s2 {
 			width: 26px;
 			height: 32px;
-			top: 203px;
+			top: 163px;
 			right: 315px;
+			left: auto;
 			animation-delay: 1.2s;
 		}
 
 		.star.s3 {
 			width: 30px;
 			height: 36px;
-			bottom: 220px;
-			right: 596px;
+			bottom: 260px;
+			right: 796px;
 			animation-delay: 0s;
 		}
 
@@ -598,9 +709,9 @@
 			width: 26px;
 			height: 32px;
 			bottom: 106px;
-			right: 139px;
+		
 			animation-delay: 1.7s;
-			left: auto;
+			left: 139px;
 		}
 
 		.star.s5 {
@@ -619,6 +730,10 @@
 height: 948px;
 			left: -150px;
 			top: -60px;
+		}
+
+		.image-con {
+			transform: scale(1.2);
 		}
 	}
 </style>

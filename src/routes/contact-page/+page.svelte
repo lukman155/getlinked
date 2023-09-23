@@ -1,17 +1,39 @@
 <script>
 	import Navbar from './../Navbar.svelte';
 	let teamName = '';
-	let topic = '';
 	let email = '';
+	let topic = '';
 	let message = '';
 
-	function handleSubmit() {
-		// Submit the form data to your server
-		console.log('Form submitted with the following data:');
-		console.log('Team Name:', teamName);
-		console.log('Topic:', topic);
-		console.log('Email:', email);
-		console.log('Message:', message);
+	async function handleSubmit() {
+		// Create a JSON object with the form data
+		const formData = {
+			first_name: teamName,
+			email,
+			phone_number: topic,
+			message,
+		};
+
+		try {
+			// Send a POST request to the contact form endpoint
+			const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (response.ok) {
+				// Contact form submission was successful, you can show a success message here
+				console.log('Contact form submission successful');
+			} else {
+				// Handle errors or show error messages
+				console.error('Contact form submission failed');
+			}
+		} catch (error) {
+			console.error('An error occurred:', error);
+		}
 	}
 </script>
 

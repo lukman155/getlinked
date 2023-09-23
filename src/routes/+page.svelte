@@ -1,4 +1,6 @@
 <script>
+		import { fade, draw, fly } from 'svelte/transition';
+
 	import FaqPage from './FaqPage.svelte';
 	import Footer from './Footer.svelte';
 	import HeroPage from './HeroPage.svelte';
@@ -33,4 +35,12 @@
 		background: url(Purple-Lens-Flare-PNG.png) no-repeat;
 		background-blend-mode: lighten;
 	}
+
+  /* CSS transitions */
+
+  .text-transition {
+    transition: opacity 0.5s ease-in-out;
+  }
 </style>
+
+
