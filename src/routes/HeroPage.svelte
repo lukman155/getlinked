@@ -28,7 +28,7 @@
 			Hackathon <span style="color:#D434FE;">1.0</span>
 			<span>
 				<img class="chain" src="chain.png" alt="star" />
-				<img class="bang" src="bang.png" alt="star" />
+				<img class="bang" src="bang1.png" alt="star" />
 			</span>
 		</h1>
 	</div>
