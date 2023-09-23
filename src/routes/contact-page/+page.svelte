@@ -34,8 +34,7 @@
 		</h3>
 
 		<h3 class="desk">
-			Questions or need
-			assistance? <br>
+			Questions or need assistance? <br />
 			Let us know about it
 		</h3>
 
@@ -86,11 +85,9 @@
 </section>
 
 <style>
-
-
-.desk {
-	display: none;
-}
+	.desk {
+		display: none;
+	}
 
 	@keyframes fadeInOut {
 		0% {
@@ -293,7 +290,6 @@
 	}
 
 	@media (min-width: 880px) {
-
 		.mobile {
 			display: none;
 		}
@@ -304,8 +300,9 @@
 		section {
 			flex-direction: row-reverse;
 			align-items: center;
-			justify-content: space-evenly;
-			padding:  120px 160px;
+			justify-content: space-around;
+			padding: 120px 160px;
+			margin: 0 auto;
 		}
 
 		.form-con {
@@ -317,7 +314,17 @@
 			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 		}
 
-		textarea {width: 437px;height: 119px;}
+		input {
+			height: 47px;
+		}
+
+		textarea {
+			height: 119px;
+			margin: 0;
+		}
+
+		form {
+		}
 
 		.form-con > h3 {
 			margin: 0;
@@ -329,7 +336,72 @@
 		}
 
 		.social {
+			width: 272px;
 			margin: 0;
+		}
+
+		.desk > h2 {
+			color: #d434fe;
+
+			font-size: 32px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+		}
+
+		.desk > P,
+		address {
+			color: #fff;
+			font-family: Montserrat;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 20px;
+		}
+
+		h4 {
+			font-size: 16px;
+			text-align: left;
+		}
+
+		.star.s1 {
+			width: 21px;
+			height: 25px;
+			top: 100px;
+			left: 205px;
+			animation-delay: 0.6s;
+		}
+
+		.star.s2 {
+			width: 26px;
+			height: 32px;
+			top: 57px;
+			right: 235px;
+			animation-delay: 1.2s;
+		}
+
+		.star.s3 {
+			width: 30px;
+			height: 36px;
+			bottom: 248px;
+			right: 60%;
+			animation-delay: 0s;
+		}
+
+		.star.s4 {
+			width: 30px;
+			height: 36px;
+			bottom: 113px;
+			right: 129px;
+			animation-delay: 1.7s;
+			left: auto;
+		}
+
+		.f1 {
+			width: 1037px;
+			height: 948px;
+			left: -150px;
+			top: -200px;
 		}
 	}
 </style>

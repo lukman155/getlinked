@@ -1,4 +1,6 @@
 <script>
+	import Navbar from '../Navbar.svelte';
+
 	let teamName = '';
 	let phone = '';
 	let email = '';
@@ -13,6 +15,8 @@
 		modalVisible = true;
 	}
 </script>
+
+<Navbar />
 
 <section class="reg-page">
 	{#if modalVisible}
@@ -34,94 +38,101 @@
 		</div>
 	{/if}
 
-	<h3>Register</h3>
-
 	<img class="star s1" src="star1-reg-mb.png" alt="star" />
 	<img class="star s2" src="star2-reg-mb.png" alt="star" />
 	<img class="star s3" src="star3-reg-mb.png" alt="star" />
+	<img class="star s4" src="star1-reg-mb.png" alt="star" />
+	<img class="star s5" src="star2-reg-mb.png" alt="star" />
+
 	<img class="flare f1" src="flare1-reg-mb.png" alt="flare1" />
+
+	<h3 class="mobile">Register</h3>
 
 	<div class="mansit">
 		<img class="man-img" src="mansit-register-responsive.png" alt="man-icon" />
 	</div>
 
-	<div class="d-line">
-		<p>Be part of this movement!</p>
-		<div class="line-con">
-			<img src="d-line.png" alt="line" class="line" />
-			<img class="icon l1" src="girl-icon-mb.png" alt="girl" />
-			<img class="icon l2" src="boy-icon-mb.png" alt="boy" />
+	<div class="res-con">
+		<h3 class="desk">Register</h3>
+
+		<div class="d-line">
+			<p>Be part of this movement!</p>
+			<div class="line-con">
+				<img src="d-line.png" alt="line" class="line" />
+				<img class="icon l1" src="girl-icon-mb.png" alt="girl" />
+				<img class="icon l2" src="boy-icon-mb.png" alt="boy" />
+			</div>
 		</div>
-	</div>
 
-	<h2>CREATE YOUR ACCOUNT</h2>
-	<div class="form-container {modalVisible ? 'disabled' : ''}">
-		<form on:submit={handleSubmit}>
-			<div class="form-con">
-				<label for="teamName">Team's Name</label>
-				<input type="text" id="teamName" placeholder="Team's Name" bind:value={teamName} />
-			</div>
-
-			<div class="form-con">
-				<label for="phone">Phone</label>
-				<input type="tel" id="phone" placeholder="Phone" bind:value={phone} />
-			</div>
-
-			<div class="form-con">
-				<label for="email">Email</label>
-				<input type="email" id="email" placeholder="Email" bind:value={email} />
-			</div>
-
-			<div class="form-con">
-				<label for="projectTopic">Project Topic</label>
-				<input
-					type="text"
-					id="projectTopic"
-					placeholder="Project Topic"
-					bind:value={projectTopic}
-				/>
-			</div>
-
-			<div class="option-form">
+		<h2>CREATE YOUR ACCOUNT</h2>
+		<div class="form-container {modalVisible ? 'disabled' : ''}">
+			<form on:submit={handleSubmit}>
 				<div class="form-con">
-					<label for="cat">Category</label>
-
-					<select bind:value={category} id="cat">
-						<option value="" disabled hidden>Choose a category</option>
-						<option value="Web Development">Web Development</option>
-						<option value="Mobile Development">Mobile Development</option>
-						<option value="Data Science">Data Science</option>
-						<option value="Machine Learning">Machine Learning</option>
-						<option value="Artificial Intelligence">Artificial Intelligence</option>
-					</select>
+					<label for="teamName">Team's Name</label>
+					<input type="text" id="teamName" placeholder="Team's Name" bind:value={teamName} />
 				</div>
 
 				<div class="form-con">
-					<label for="group">Group Size</label>
-
-					<select bind:value={groupSize} id="group">
-						<option value="" disabled hidden>Select</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
+					<label for="phone">Phone</label>
+					<input type="tel" id="phone" placeholder="Phone" bind:value={phone} />
 				</div>
-			</div>
 
-			<h5>Please review your registration details before submitting</h5>
+				<div class="form-con">
+					<label for="email">Email</label>
+					<input type="email" id="email" placeholder="Email" bind:value={email} />
+				</div>
 
-			<div class="form-con term">
-				<label class="custom-checkbox">
-					<input type="checkbox" bind:checked={terms} />
-					<span class="checkmark" />
-					<p>I agree with the event terms and conditions and privacy policy.</p>
-				</label>
-			</div>
+				<div class="form-con">
+					<label for="projectTopic">Project Topic</label>
+					<input
+						type="text"
+						id="projectTopic"
+						placeholder="Project Topic"
+						bind:value={projectTopic}
+					/>
+				</div>
 
-			<button type="submit">Submit</button>
-		</form>
+				<div class="option-form">
+					<div class="form-con">
+						<label for="cat">Category</label>
+
+						<select bind:value={category} id="cat">
+							<option value="" disabled hidden>Choose a category</option>
+							<option value="Web Development">Web Development</option>
+							<option value="Mobile Development">Mobile Development</option>
+							<option value="Data Science">Data Science</option>
+							<option value="Machine Learning">Machine Learning</option>
+							<option value="Artificial Intelligence">Artificial Intelligence</option>
+						</select>
+					</div>
+
+					<div class="form-con">
+						<label for="group">Group Size</label>
+
+						<select bind:value={groupSize} id="group">
+							<option value="" disabled hidden>Select</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+				</div>
+
+				<h5 class="warn">Please review your registration details before submitting</h5>
+
+				<div class="form-con term">
+					<label class="custom-checkbox">
+						<input type="checkbox" bind:checked={terms} />
+						<span class="checkmark" />
+						<p>I agree with the event terms and conditions and privacy policy.</p>
+					</label>
+				</div>
+
+				<button type="submit">Submit</button>
+			</form>
+		</div>
 	</div>
 </section>
 
@@ -495,5 +506,119 @@
 		padding: 17px 57px;
 		align-self: center;
 		margin-bottom: 41px;
+	}
+
+	@media (min-width: 880px) {
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			flex-direction: row;
+		}
+
+		form > * {
+			width: calc(50% - 10px); /* Subtracting margin space */
+			margin-bottom: 20px;
+		}
+
+		.warn,
+		.term {
+			width: 100%;
+		}
+
+		select {
+			width: 100%;
+		}
+
+		select {
+			widows: 100%;
+		}
+
+		button {
+			width: 100%;
+		}
+
+		.warn {
+			text-align: left;
+		}
+		.mobile {
+			display: none;
+		}
+
+		.desk {
+			display: block;
+		}
+
+		.mansit {
+			z-index: 2;
+			width: 717px;
+			height: 717px;
+		}
+		.reg-page {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			padding: 120px 160px;
+			margin: 0 auto;
+		}
+
+		.res-con {
+			width: 740px;
+			padding: 75px 90px;
+			border-radius: 12px;
+			background: rgba(255, 255, 255, 0.03);
+			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		}
+
+		.star.s1 {
+			width: 21px;
+			height: 25px;
+			top: 235px;
+			left: 128px;
+			animation-delay: 0.6s;
+		}
+
+		.star.s2 {
+			width: 26px;
+			height: 32px;
+			top: 203px;
+			right: 315px;
+			animation-delay: 1.2s;
+		}
+
+		.star.s3 {
+			width: 30px;
+			height: 36px;
+			bottom: 220px;
+			right: 596px;
+			animation-delay: 0s;
+		}
+
+		.star.s4 {
+			width: 26px;
+			height: 32px;
+			bottom: 106px;
+			right: 139px;
+			animation-delay: 1.7s;
+			left: auto;
+		}
+
+		.star.s5 {
+			width: 10px;
+			height: 12px;
+			bottom: 46px;
+			right: 208px;
+			left: 0;
+			animation-delay: 1.7s;
+			left: auto;
+		}
+
+		.f1 {
+			z-index: 0;
+			width: 1037px;
+height: 948px;
+			left: -150px;
+			top: -60px;
+		}
 	}
 </style>
