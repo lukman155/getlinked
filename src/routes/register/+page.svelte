@@ -5,77 +5,85 @@
 
     const baseUrl = 'https://backend.getlinked.ai';
 
-    let teamName = '';
-    let phone = '';
-    let email = '';
-    let projectTopic = '';
-    let category = '';
-    let groupSize = '';
-    let terms = false;
 
-    let modalVisible = false;
+	let teamName = '';
+	let phone = '';
+	let email = '';
+	let projectTopic = '';
+	let categoryId = ''; // Use categoryId to store the selected category ID
+	let groupSize = '';
+	let terms = false;
 
-		let categories = [];
+	let modalVisible = false;
 
-    // Function to fetch categories from the API
-    async function fetchCategories() {
-        try {
-            const response = await fetch(`${baseUrl}/api/categories`);
-            const data = await response.json();
-            categories = data;
-						console.log(categories) // Assuming your API response has a 'categories' property
-        } catch (error) {
-            console.error('Error fetching categories:', error);
-        }
-    }
+	let categories = [];
 
-    // Fetch categories when the component mounts
-    onMount(() => {
-        fetchCategories();
-    });
+	// Function to fetch categories from the API
+	async function fetchCategories() {
+		try {
+			const response = await fetch(`${baseUrl}/hackathon/categories-list`, {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+			if (response.ok) {
+				const data = await response.json();
+				categories = data;
+			} else {
+				console.error('Error fetching categories');
+			}
+		} catch (error) {
+			console.error('Error fetching categories:', error);
+		}
+	}
 
-		function handleSubmit() {
-        // Prepare your form data and make the registration POST request here
-        // Example:
-        const formData = {
-            teamName,
-            phone,
-            email,
-            projectTopic,
-            category,
-            groupSize,
-            terms,
-        };
+	// Fetch categories when the component mounts
+	onMount(() => {
+		fetchCategories();
+	});
 
-        // Make the POST request to your registration endpoint
-        fetch(`${baseUrl}/api/register`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then((response) => {
-            // Handle the response here, e.g., show a success message and reset the form
-            if (response.ok) {
-                modalVisible = true; // Show success modal
-                // Reset form fields
-                teamName = '';
-                phone = '';
-                email = '';
-                projectTopic = '';
-                category = '';
-                groupSize = '';
-                terms = false;
-            } else {
-                // Handle the error response, e.g., show an error message
-                console.error('Registration failed');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
+	function handleSubmit() {
+		// Prepare your form data and make the registration POST request here
+		// Example:
+		const formData = {
+			teamName,
+			phone,
+			email,
+			projectTopic,
+			category: Number(categoryId), // Convert categoryId to a number
+			groupSize,
+			terms,
+		};
+
+		// Make the POST request to your registration endpoint
+		fetch(`${baseUrl}/hackathon/registration`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(formData),
+		})
+			.then((response) => {
+				// Handle the response here, e.g., show a success message and reset the form
+				if (response.ok) {
+					modalVisible = true; // Show success modal
+					// Reset form fields
+					teamName = '';
+					phone = '';
+					email = '';
+					projectTopic = '';
+					categoryId = ''; // Clear selected category
+					groupSize = '';
+					terms = false;
+				} else {
+					// Handle the error response, e.g., show an error message
+					console.error('Registration failed');
+				}
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	}
 
 </script>
 
@@ -159,15 +167,20 @@
 					/>
 				</div>
 
-				<div class="option-form">
-					<div class="form-con">
-						<label for="cat">Category</label>
-						<select bind:value={category} id="cat">
-								<option value="" disabled hidden>Choose a category</option>
-								{#each categories as cat}
-										<option value={cat}>{cat}</option>
-								{/each}
-						</select>
+				<div class="form-con">
+					<label for="cat">Category</label>
+					<select bind:value={categoryId} id="cat">
+						<option value="" disabled hidden>Choose a category</option>
+						{#each categories as cat (cat.id)}
+							<option value={cat.id}>
+								{#if categoryId === cat.id}
+									{cat.name}
+								{:else}
+									{cat.name} <!-- Display category name -->
+								{/if}
+							</option>
+						{/each}
+					</select>
 				</div>
 
 					<div class="form-con">
@@ -182,7 +195,7 @@
 							<option value="5">5</option>
 						</select>
 					</div>
-				</div>
+				
 
 				<h5 class="warn">Please review your registration details before submitting</h5>
 
