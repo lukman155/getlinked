@@ -211,6 +211,9 @@
 </section>
 
 <style>
+	.desk {
+		display: none;
+	}
 	.image-con {
 		position: relative;
 		margin-bottom: 46px;
@@ -404,6 +407,7 @@
 		line-height: normal;
 		margin: 0px;
 		margin-bottom: 25px;
+		text-align: center;
 	}
 
 	.d-line {
@@ -586,6 +590,18 @@
 		.modal-content {
 			width: 699px;
 			height: 664px;
+		}
+
+		h2 {
+			text-align: left;
+		}
+
+		h3 {
+			font-size: 32px;
+		}
+
+		.d-line {
+			justify-content: left;
 		}
 
 		.modal-content > .p1 {
