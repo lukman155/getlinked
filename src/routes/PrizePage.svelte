@@ -16,7 +16,12 @@
 	<img class="flare f1" src="flare1-prize-mb.png" alt="flare2" />
 	<img class="flare f2" src="flare1-prize-mb.png" alt="flare2" />
 
-	<img class="cup-img desk" src="cup-prize-mb.png" alt="cup" />
+	<img
+	
+	use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="cup-img desk {isInView ? 'show' : 'hidden'}"
+	src="cup-prize-mb.png" alt="cup" />
 	<div class="res-con">
 		<h2>
 			Prizes and<br />
@@ -27,19 +32,26 @@
 		<img class="cup-img mobile" src="cup-prize-mb.png" alt="cup" />
 
 		<div class="medal-wrapper">
-			<div class="medal m1">
+			<div use:inview={options}
+			on:inview_change={(event) => (isInView = event.detail.inView)}
+			class="medal m1 {isInView ? 'show delay1' : 'hidden'}">
 				<img src="medal1-prize-mb.png" alt="medal" />
 				<p><span>2nd</span><br />Runner</p>
 				<h3>N300,000</h3>
 			</div>
 
-			<div class="medal m2">
+			<div 
+			use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="medal m2 {isInView ? 'show delay2' : 'hidden'}">
 				<img src="medal2-prize-mb.png" alt="medal" />
 				<p><span>1st</span><br />Runner</p>
 				<h3>N500,000</h3>
 			</div>
 
-			<div class="medal m3">
+			<div use:inview={options}
+			on:inview_change={(event) => (isInView = event.detail.inView)}
+			class="medal m3 {isInView ? 'show delay3' : 'hidden'}">
 				<img src="medal3-prize-mb.png" alt="medal" />
 				<p><span>3rd</span><br />Runner</p>
 				<h3>N150,000</h3>
@@ -50,6 +62,7 @@
 
 <style>
 
+
 .hidden {
 		opacity: 0;
 		transition: opacity 0.5s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
@@ -59,6 +72,18 @@
 		opacity: 1;
 		transition: opacity 0.5s ease-in-out; /* Add the same transition for consistency */
 		transition-delay: 0.5s; /* Add the same delay for consistency */
+	}
+
+	.show.delay1 {
+		transition-delay: .9s; /* Add the same delay for consistency */
+	}
+
+	.show.delay2 {
+		transition-delay: 1.5s; /* Add the same delay for consistency */
+	}
+
+	.show.delay3 {
+		transition-delay: .7s; /* Add the same delay for consistency */
 	}
 
 	.desk {
