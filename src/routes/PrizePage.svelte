@@ -1,3 +1,11 @@
+<script>
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
+</script>
+
 <section class="prize-page">
 	<img class="star s1" src="star1-prize-mb.png" alt="star" />
 	<img class="star s2" src="star2-prize-mb.png" alt="star" />
@@ -41,6 +49,18 @@
 </section>
 
 <style>
+
+.hidden {
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transition: opacity 0.5s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.5s; /* Add the same delay for consistency */
+	}
+
 	.desk {
 		display: none;
 	}

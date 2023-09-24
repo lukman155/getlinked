@@ -1,3 +1,11 @@
+<script>
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
+</script>
+
 <section class="time-page">
 	<img class="star s1" src="star1-time-mb.png" alt="star" />
 	<img class="star s2" src="star2-time-mb.png" alt="star" />
@@ -6,8 +14,12 @@
 	<h2>Timeline</h2>
 	<p class="intro">Here is the breakdown of the time we anticipate using for the upcoming event.</p>
 
-	<div class="timeline">
-		<div class="wrapper">
+	<div
+	use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="timeline {isInView ? 'show' : 'hidden'}">
+		<div
+		 class="wrapper">
 			<div class="text">
 				<h3>Hackathon Announcement</h3>
 				<p>
@@ -96,13 +108,13 @@
 <style>
 	.hidden {
 		opacity: 0;
-		transition: opacity 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+		transition: opacity 0.5s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
 	}
 
 	.show {
 		opacity: 1;
-		transition: opacity 0.3s ease-in-out; /* Add the same transition for consistency */
-		transition-delay: 0.3s; /* Add the same delay for consistency */
+		transition: opacity 0.5s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.5s; /* Add the same delay for consistency */
 	}
 	.v-line {
 		display: none;
