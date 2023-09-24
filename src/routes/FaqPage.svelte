@@ -141,21 +141,21 @@
 		color: #d434fe;
 		font-size: 64px;
 		left: 36%;
-		bottom: 370px;
+		bottom: 0px;
 	}
 
 	.q2 {
 		color: #a866fd;
 		font-size: 40px;
 		left: 20%;
-		bottom: 350px;
+		bottom: -20px;
 	}
 
 	.q3 {
 		color: #a866fd;
 		font-size: 40px;
 		left: 56%;
-		bottom: 350px;
+		bottom: -20px;
 	}
 
 	/* Define the animation keyframes */
