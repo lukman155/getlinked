@@ -307,6 +307,7 @@ onMount(() => {
 
 		.headline-wrapper {
 			align-self: flex-end;
+			
 		}
 
 		h1 {

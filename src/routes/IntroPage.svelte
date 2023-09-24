@@ -1,17 +1,16 @@
 <script>
-		import { fade, draw, fly } from 'svelte/transition';
+	import { transition } from 'svelte';
 
 </script>
-
 
 <section class="intro-page">
 	<img class="star s1" src="star1-intro-mb.png" alt="star" />
 	<img class="star s2" src="star2-intro-mb.png" alt="star" />
 
-	<img class="idea" src="idea-intro-responsive.png" alt="big-idea" />
-	<img class="arrow" src="arrow.png" alt="arrow" />
+	<img class="idea hidden" src="idea-intro-responsive.png" alt="big-idea" />
+	<img class="arrow hidden" src="arrow.png" alt="arrow" />
 
-	<div class="res-con" >
+	<div class="res-con hidden" trn>
 		<h2>
 			Introduction to getlinked<br />
 			<span>tech Hackathon 1.0</span>
@@ -27,6 +26,7 @@
 </section>
 
 <style>
+
 	.arrow {
 		position: absolute;
 		top: 310px;
