@@ -54,14 +54,14 @@
 	<img class="star s4" src="star4-faq-mb.png" alt="star" />
 	<img class="star s5" src="star5-faq-mb.png" alt="star" />
 	<div class="res-con">
-		<h2>
+		<h2 class="{isInView ? 'show-slide' : 'hidden-slide'}"
+		>
 			Frequently Ask<br />
 			<span>Question</span>
 		</h2>
 
 		<p class="intro {isInView ? 'show-slide' : 'hidden-slide'}"
-		use:inview={options}
-		on:inview_change={(event) => (isInView = event.detail.inView)}>
+		>
 			We got answers to the questions that you might want to ask about getlinked Hackathon 1.0
 		</p>
 
