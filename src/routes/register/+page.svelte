@@ -44,6 +44,7 @@
 	function handleSubmit() {
 		// Prepare your form data and make the registration POST request here
 		// Example:
+		modalVisible = true
 		const formData = {
 			teamName,
 			phone,
