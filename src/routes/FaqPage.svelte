@@ -54,9 +54,7 @@
 	<img class="star s4" src="star4-faq-mb.png" alt="star" />
 	<img class="star s5" src="star5-faq-mb.png" alt="star" />
 	<div class="res-con">
-		<h2 class="{isInView ? 'show-slide' : 'hidden-slide'}"
-		use:inview={options}
-		on:inview_change={(event) => (isInView = event.detail.inView)}>
+		<h2>
 			Frequently Ask<br />
 			<span>Question</span>
 		</h2>
@@ -145,21 +143,21 @@
 		color: #d434fe;
 		font-size: 64px;
 		left: 36%;
-		bottom: 0px;
+		bottom: 380px;
 	}
 
 	.q2 {
 		color: #a866fd;
 		font-size: 40px;
 		left: 20%;
-		bottom: -20px;
+		bottom: 360px;
 	}
 
 	.q3 {
 		color: #a866fd;
 		font-size: 40px;
 		left: 56%;
-		bottom: -20px;
+		bottom: 360px;
 	}
 
 	/* Define the animation keyframes */
