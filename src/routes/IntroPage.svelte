@@ -1,50 +1,70 @@
 <script>
-	import { onMount } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
-	let animate = false;
-	onMount(() => {
-		animate = true;
-	});
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
 </script>
 
 <section class="intro-page">
 	<img class="star s1" src="star1-intro-mb.png" alt="star" />
 	<img class="star s2" src="star2-intro-mb.png" alt="star" />
-	{#if animate}
-		<img
-			in:fade={{
-				y: 100,
-				delay: 500
-			}}
-			class="idea"
-			src="idea-intro-responsive.png"
-			alt="big-idea"
-		/>
-		<img class="arrow" src="arrow.png" alt="arrow" />
 
-		<div
-			class="res-con hidden"
-			in:fly={{
-				y: 100,
-				delay: 500
-			}}
-		>
-			<h2>
-				Introduction to getlinked<br />
-				<span>tech Hackathon 1.0</span>
-			</h2>
-			<p>
-				Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to
-				shape the future. Whether you're a coding genius, a design maverick, or a concept wizard,
-				you'll have the chance to transform your ideas into reality. Solving real-world problems,
-				pushing the boundaries of technology, and creating solutions that can change the world,
-				that's what we're all about!
-			</p>
-		</div>
-	{/if}
+	<img
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="idea {isInView ? 'show' : 'hidden'}"
+		src="idea-intro-responsive.png"
+		alt="big-idea"
+	/>
+	<img class="arrow" src="arrow.png" alt="arrow" />
+
+	<div
+		class="res-con {isInView ? 'show-slide' : 'hidden-slide'}"
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+	>
+		<h2>
+			Introduction to getlinked<br />
+			<span>tech Hackathon 1.0</span>
+		</h2>
+		<p>
+			Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to
+			shape the future. Whether you're a coding genius, a design maverick, or a concept wizard,
+			you'll have the chance to transform your ideas into reality. Solving real-world problems,
+			pushing the boundaries of technology, and creating solutions that can change the world, that's
+			what we're all about!
+		</p>
+	</div>
 </section>
 
 <style>
+	.hidden {
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
+
+	.hidden-slide {
+		transform: translateX(100%);
+		filter: blur(5px);
+		opacity: 0;
+		transition: all 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show-slide {
+		transform: translateX(0);
+		filter: blur(0);
+		opacity: 1;
+		transition: all 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
+
 	.arrow {
 		position: absolute;
 		top: 310px;

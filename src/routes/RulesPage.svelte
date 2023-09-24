@@ -1,3 +1,11 @@
+<script>
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
+</script>
+
 <section class="rules-page">
 	<div class="flare-con">
 		<img class="flare f1" src="flare1-rules-mb.png" alt="flare2" />
@@ -8,7 +16,11 @@
 	<img class="star s2" src="star2-rules-mb.png" alt="star" />
 	<img class="star s3" src="star3-rules-mb.png" alt="star" />
 
-	<div class="svg">
+	<div
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="svg {isInView ? 'show' : 'hidden'}"
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="134"
@@ -33,10 +45,18 @@
 		</svg>
 	</div>
 
-	<div class="woman-con">
+	<div
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="woman-con {isInView ? 'show' : 'hidden'}"
+	>
 		<img class="woman" src="woman-rules.png" alt="woman" />
 	</div>
-	<div class="res-con">
+	<div
+		class="res-con {isInView ? 'show-slide' : 'hidden-slide'}"
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+	>
 		<h2>
 			Rules and<br />
 			<span>Guidelines</span>
@@ -52,6 +72,31 @@
 </section>
 
 <style>
+	.hidden {
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
+
+	.hidden-slide {
+		transform: translateX(-100%);
+		filter: blur(5px);
+		opacity: 0;
+		transition: all 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show-slide {
+		transform: translateX(0);
+		filter: blur(0);
+		opacity: 1;
+		transition: all 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
 	.svg {
 		display: none;
 	}

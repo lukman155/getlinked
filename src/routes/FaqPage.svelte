@@ -1,4 +1,12 @@
 <script>
+
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
+
+
 	const questions = [
 		{
 			question: 'Can I work on a project I started before the hackathon?',
@@ -45,7 +53,9 @@
 	<img class="star s3" src="star3-faq-mb.png" alt="star" />
 	<img class="star s4" src="star4-faq-mb.png" alt="star" />
 	<img class="star s5" src="star5-faq-mb.png" alt="star" />
-	<div class="res-con">
+	<div class="res-con {isInView ? 'show-slide' : 'hidden-slide'}"
+	use:inview={options}
+	on:inview_change={(event) => (isInView = event.detail.inView)}>
 		<h2>
 			Frequently Ask<br />
 			<span>Question</span>
@@ -60,7 +70,8 @@
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div class="accordion-container">
 			{#each questions as question, index}
-				<div class="accordion" on:click={() => toggleQuestion(index)}>
+				<div class="accordion"
+			 on:click={() => toggleQuestion(index)}>
 					<div class="ask" aria-role="button">
 						<p>{question.question}</p>
 						<p class="plus">+</p>
@@ -83,10 +94,39 @@
 		</div>
 	</div>
 
-	<img class="man-img" src="man-faq-mb.png" alt="man-think" />
+	<img
+	use:inview={options}
+	on:inview_change={(event) => (isInView = event.detail.inView)}
+	class="man-img {isInView ? 'show' : 'hidden'}" src="man-faq-mb.png" alt="man-think" />
 </section>
 
 <style>
+
+.hidden {
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
+
+	.hidden-slide {
+		transform: translateX(-100%);
+		filter: blur(5px);
+		opacity: 0;
+		transition: all 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show-slide {
+		transform: translateX(0);
+		filter: blur(0);
+		opacity: 1;
+		transition: all 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
 	.question-icons > p {
 		position: absolute;
 		font-family: 'MADE TOMMY Outline';
