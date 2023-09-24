@@ -94,6 +94,16 @@
 </section>
 
 <style>
+	.hidden {
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.3s; /* Add the same delay for consistency */
+	}
 	.v-line {
 		display: none;
 	}

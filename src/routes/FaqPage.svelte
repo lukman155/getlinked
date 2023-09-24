@@ -180,6 +180,8 @@
 	}
 
 	.man-img {
+		width: 327px;
+		height: 327px;
 		margin-bottom: 49px;
 	}
 

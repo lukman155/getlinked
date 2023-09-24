@@ -47,7 +47,7 @@
 			<path d="M1 9C20.2424 3.71764 70.7273 -3.67768 116 9" stroke="#FF26B9" stroke-width="3" />
 		</svg>
 		<svg
-			class="desk"
+			class="desktop"
 			xmlns="http://www.w3.org/2000/svg"
 			width="255"
 			height="17"
@@ -82,7 +82,7 @@
 </section>
 
 <style>
-	.desk {
+	.desktop {
 		display: none;
 	}
 	.bulb {
@@ -273,6 +273,8 @@
 		font-weight: 700;
 		line-height: normal;
 		margin-bottom: 7px;
+width: 324px;
+height: 14px;
 	}
 
 	@media (min-width: 880px) {
@@ -360,9 +362,8 @@
 			width: 30px;
 			height: 40px;
 		}
-	}
 
-	.headline {
+		.headline {
 		width: 727px;
 		height: 36px;
 	}
@@ -371,9 +372,12 @@
 		display: none;
 	}
 
-	.desk {
+	.desktop {
 		display: block;
 	}
+
+	}
+
 
 	@media (min-width: 1200px) {
 		.bulb {
