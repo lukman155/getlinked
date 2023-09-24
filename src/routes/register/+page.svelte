@@ -3,8 +3,7 @@
 
 	import { onMount } from 'svelte';
 
-    const baseUrl = 'https://backend.getlinked.ai';
-
+	const baseUrl = 'https://backend.getlinked.ai';
 
 	let teamName = '';
 	let phone = '';
@@ -23,8 +22,8 @@
 		try {
 			const response = await fetch(`${baseUrl}/hackathon/categories-list`, {
 				headers: {
-					'Content-Type': 'application/json',
-				},
+					'Content-Type': 'application/json'
+				}
 			});
 			if (response.ok) {
 				const data = await response.json();
@@ -52,16 +51,16 @@
 			projectTopic,
 			category: Number(categoryId), // Convert categoryId to a number
 			groupSize,
-			terms,
+			terms
 		};
 
 		// Make the POST request to your registration endpoint
 		fetch(`${baseUrl}/hackathon/registration`, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(formData),
+			body: JSON.stringify(formData)
 		})
 			.then((response) => {
 				// Handle the response here, e.g., show a success message and reset the form
@@ -84,7 +83,6 @@
 				console.error('Error:', error);
 			});
 	}
-
 </script>
 
 <Navbar />
@@ -93,9 +91,9 @@
 	{#if modalVisible}
 		<div class="modal show">
 			<img class="star sa1" src="star1-reg-mb.png" alt="star" />
-	<img class="star sa2" src="star2-reg-mb.png" alt="star" />
-	<img class="star sa3" src="star3-reg-mb.png" alt="star" />
-	
+			<img class="star sa2" src="star2-reg-mb.png" alt="star" />
+			<img class="star sa3" src="star3-reg-mb.png" alt="star" />
+
 			<div class="modal-content">
 				<div class="image-con">
 					<img src="check-modal-responsive.png" alt="check" class="check-modal" />
@@ -183,19 +181,18 @@
 					</select>
 				</div>
 
-					<div class="form-con">
-						<label for="group">Group Size</label>
+				<div class="form-con">
+					<label for="group">Group Size</label>
 
-						<select bind:value={groupSize} id="group">
-							<option value="" disabled hidden>Select</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
-					</div>
-				
+					<select bind:value={groupSize} id="group">
+						<option value="" disabled hidden>Select</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
 
 				<h5 class="warn">Please review your registration details before submitting</h5>
 
@@ -586,11 +583,9 @@
 	}
 
 	@media (min-width: 880px) {
-
-		
 		.modal-content {
 			width: 699px;
-height: 664px;
+			height: 664px;
 		}
 
 		.modal-content > .p1 {
@@ -605,7 +600,6 @@ height: 664px;
 		.back-btn {
 			width: 274px;
 		}
-
 
 		form {
 			display: flex;
@@ -727,7 +721,7 @@ height: 664px;
 			width: 26px;
 			height: 32px;
 			bottom: 106px;
-		
+
 			animation-delay: 1.7s;
 			left: 139px;
 		}
@@ -745,7 +739,7 @@ height: 664px;
 		.f1 {
 			z-index: 0;
 			width: 1037px;
-height: 948px;
+			height: 948px;
 			left: -150px;
 			top: -60px;
 		}

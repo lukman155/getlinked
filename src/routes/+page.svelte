@@ -1,5 +1,5 @@
 <script>
-		import { fade, draw, fly } from 'svelte/transition';
+	import { fade, draw, fly } from 'svelte/transition';
 
 	import FaqPage from './FaqPage.svelte';
 	import Footer from './Footer.svelte';
@@ -36,11 +36,9 @@
 		background-blend-mode: lighten;
 	}
 
-  /* CSS transitions */
+	/* CSS transitions */
 
-  .text-transition {
-    transition: opacity 0.5s ease-in-out;
-  }
+	.text-transition {
+		transition: opacity 0.5s ease-in-out;
+	}
 </style>
-
-

@@ -1,11 +1,11 @@
 <script>
-	import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 
-let text = 'Igniting a Revolution in HR Innovation';
-let displayText = '';
-let speed = 200;
+	let text = 'Igniting a Revolution in HR Innovation';
+	let displayText = '';
+	let speed = 200;
 
-function typeWriter() {
+	function typeWriter() {
 		if (text.length > 0) {
 			displayText += text.charAt(0);
 			text = text.substring(1);
@@ -18,9 +18,9 @@ function typeWriter() {
 		}
 	}
 
-onMount(() => {
-	typeWriter();
-});
+	onMount(() => {
+		typeWriter();
+	});
 </script>
 
 <section class="hero-page">
@@ -36,7 +36,8 @@ onMount(() => {
 
 	<div class="headline-wrapper">
 		<h2 class="headline" id="type">{displayText}</h2>
-		<svg class="mobile"
+		<svg
+			class="mobile"
 			xmlns="http://www.w3.org/2000/svg"
 			width="117"
 			height="11"
@@ -45,9 +46,20 @@ onMount(() => {
 		>
 			<path d="M1 9C20.2424 3.71764 70.7273 -3.67768 116 9" stroke="#FF26B9" stroke-width="3" />
 		</svg>
-		<svg class="desk" xmlns="http://www.w3.org/2000/svg" width="255" height="17" viewBox="0 0 255 17" fill="none">
-			<path d="M1 14.043C43.3333 5.7097 154.4 -5.95697 254 14.043" stroke="#FF26B9" stroke-width="5"/>
-			</svg>
+		<svg
+			class="desk"
+			xmlns="http://www.w3.org/2000/svg"
+			width="255"
+			height="17"
+			viewBox="0 0 255 17"
+			fill="none"
+		>
+			<path
+				d="M1 14.043C43.3333 5.7097 154.4 -5.95697 254 14.043"
+				stroke="#FF26B9"
+				stroke-width="5"
+			/>
+		</svg>
 	</div>
 	<div class="title">
 		<h1>
@@ -80,7 +92,6 @@ onMount(() => {
 		width: 18px;
 		height: 26px;
 	}
-
 
 	.flare {
 		position: absolute;
@@ -307,7 +318,6 @@ onMount(() => {
 
 		.headline-wrapper {
 			align-self: flex-end;
-			
 		}
 
 		h1 {
@@ -359,13 +369,11 @@ onMount(() => {
 
 	.mobile {
 		display: none;
-
 	}
 
 	.desk {
 		display: block;
 	}
-
 
 	@media (min-width: 1200px) {
 		.bulb {
@@ -406,7 +414,7 @@ onMount(() => {
 
 		.line {
 			width: 253px;
-height: 11.043px;
+			height: 11.043px;
 		}
 
 		.intro {
@@ -448,7 +456,6 @@ height: 11.043px;
 			bottom: 0;
 			z-index: 0;
 		}
-
 
 		.man {
 			filter: grayscale(100%) sepia(500%) hue-rotate(240deg);

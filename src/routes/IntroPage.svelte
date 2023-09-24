@@ -1,32 +1,50 @@
 <script>
-	import { transition } from 'svelte';
-
+	import { onMount } from 'svelte';
+	import { fly, fade } from 'svelte/transition';
+	let animate = false;
+	onMount(() => {
+		animate = true;
+	});
 </script>
 
 <section class="intro-page">
 	<img class="star s1" src="star1-intro-mb.png" alt="star" />
 	<img class="star s2" src="star2-intro-mb.png" alt="star" />
+	{#if animate}
+		<img
+			in:fade={{
+				y: 100,
+				delay: 500
+			}}
+			class="idea"
+			src="idea-intro-responsive.png"
+			alt="big-idea"
+		/>
+		<img class="arrow" src="arrow.png" alt="arrow" />
 
-	<img class="idea hidden" src="idea-intro-responsive.png" alt="big-idea" />
-	<img class="arrow hidden" src="arrow.png" alt="arrow" />
-
-	<div class="res-con hidden" trn>
-		<h2>
-			Introduction to getlinked<br />
-			<span>tech Hackathon 1.0</span>
-		</h2>
-		<p>
-			Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to
-			shape the future. Whether you're a coding genius, a design maverick, or a concept wizard,
-			you'll have the chance to transform your ideas into reality. Solving real-world problems,
-			pushing the boundaries of technology, and creating solutions that can change the world, that's
-			what we're all about!
-		</p>
-	</div>
+		<div
+			class="res-con hidden"
+			in:fly={{
+				y: 100,
+				delay: 500
+			}}
+		>
+			<h2>
+				Introduction to getlinked<br />
+				<span>tech Hackathon 1.0</span>
+			</h2>
+			<p>
+				Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to
+				shape the future. Whether you're a coding genius, a design maverick, or a concept wizard,
+				you'll have the chance to transform your ideas into reality. Solving real-world problems,
+				pushing the boundaries of technology, and creating solutions that can change the world,
+				that's what we're all about!
+			</p>
+		</div>
+	{/if}
 </section>
 
 <style>
-
 	.arrow {
 		position: absolute;
 		top: 310px;
@@ -190,6 +208,9 @@
 			font-weight: 400;
 			line-height: 27.5px; /* 196.429% */
 		}
+	}
+	section {
+		min-height: 633px;
 	}
 
 	@media (min-width: 1200px) {

@@ -11,7 +11,7 @@
 			first_name: teamName,
 			email,
 			phone_number: topic,
-			message,
+			message
 		};
 
 		try {
@@ -19,9 +19,9 @@
 			const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json',
+					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify(formData)
 			});
 
 			if (response.ok) {
