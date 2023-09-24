@@ -53,22 +53,26 @@
 	<img class="star s3" src="star3-faq-mb.png" alt="star" />
 	<img class="star s4" src="star4-faq-mb.png" alt="star" />
 	<img class="star s5" src="star5-faq-mb.png" alt="star" />
-	<div class="res-con {isInView ? 'show-slide' : 'hidden-slide'}"
-	use:inview={options}
-	on:inview_change={(event) => (isInView = event.detail.inView)}>
-		<h2>
+	<div class="res-con">
+		<h2 class="{isInView ? 'show-slide' : 'hidden-slide'}"
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}>
 			Frequently Ask<br />
 			<span>Question</span>
 		</h2>
 
-		<p class="intro">
+		<p class="intro {isInView ? 'show-slide' : 'hidden-slide'}"
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}>
 			We got answers to the questions that you might want to ask about getlinked Hackathon 1.0
 		</p>
 
 		<!-- svelte-ignore a11y-unknown-aria-attribute -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class="accordion-container">
+		<div class="accordion-container {isInView ? 'show-slide' : 'hidden-slide'}"
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}>
 			{#each questions as question, index}
 				<div class="accordion"
 			 on:click={() => toggleQuestion(index)}>
@@ -349,6 +353,7 @@
 			left: auto;
 			right: 454px;
 			top: 202px;
+			bottom: auto;
 		}
 
 		.star.s1 {
