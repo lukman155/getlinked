@@ -1,3 +1,11 @@
+<script>
+	import { inview } from 'svelte-inview';
+	let isInView = false;
+	const options = {
+		// You can configure rootMargin and other options here.
+	};
+</script>
+
 <section class="partner-page">
 	<img class="star s1" src="star1-partner-mb.png" alt="star" />
 	<img class="star s2" src="star2-partner-mb.png" alt="star" />
@@ -15,19 +23,28 @@
 
 	<div class="company-logo">
 		<div class="logo l1">
-			<img src="liberty-1st-mb.png" alt="liberty-logo" />
+			<img src="liberty-1st-mb.png" alt="liberty-logo" 
+			use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="{isInView ? 'show' : 'hidden'}"/>
 		</div>
 
 		<div class="logo v-line" />
 
 		<div class="logo l2">
-			<img src="liberty-2nd-mb.png" alt="liberty-logo" />
+			<img src="liberty-2nd-mb.png" alt="liberty-logo"
+			use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="{isInView ? 'show' : 'hidden'}" />
 		</div>
 
 		<div class="logo v-line" />
 
 		<div class="logo l3">
-			<img src="winwise-3rd-mb.png" alt="liberty-logo" />
+			<img src="winwise-3rd-mb.png" alt="liberty-logo" 
+			use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="{isInView ? 'show' : 'hidden'}"/>
 		</div>
 
 		<div class="logo h-line" />
@@ -41,25 +58,46 @@
 		<div class="logo h-line" />
 
 		<div class="logo l4">
-			<img src="whisper-4th-mb.png" alt="liberty-logo" />
+			<img src="whisper-4th-mb.png" alt="liberty-logo" use:inview={options}
+			on:inview_change={(event) => (isInView = event.detail.inView)}
+			class="{isInView ? 'show' : 'hidden'}"/>
 		</div>
 
 		<div class="logo v-line" />
 
 		<div class="logo l5">
-			<p class="pay">Pay<span>box</span></p>
+			<p
+			use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="pay {isInView ? 'show' : 'hidden'}">Pay<span>box</span></p>
 		</div>
 
 		<div class="logo v-line" />
 
-		<div class="logo l6">
-			<p class="why">Vuzual <span>Plus</span></p>
+		<div
+		use:inview={options}
+		on:inview_change={(event) => (isInView = event.detail.inView)}
+		class="logo l6 {isInView ? 'show' : 'hidden'}">
+			<p class="why ">Vuzual <span>Plus</span></p>
 			<p class="why2">Design Studios</p>
 		</div>
 	</div>
 </section>
 
 <style>
+
+.hidden {
+	transform: scale(0);
+		opacity: 0;
+		transition: all 0.6s ease-in-out; /* Add transition with a 0.3s duration and ease-in-out timing function */
+	}
+
+	.show {
+		opacity: 1;
+		transform: scale(1);
+		transition: all 0.6s ease-in-out; /* Add the same transition for consistency */
+		transition-delay: 0.2s; /* Add the same delay for consistency */
+	}
 	.pay {
 		color: #fff;
 		font-family: Typo Hoop Demo;
