@@ -136,6 +136,20 @@
 			margin-bottom: 11px;
 		}
 
+		.nav-link, .register-button:hover  {
+			transition: all .2s ease-in-out;
+		}
+
+		.nav-link:hover {
+			transform: scale(1.1);
+			color: #fe34b9;
+		}
+
+		.register-button:hover {
+			transform: scale(1.1);
+			
+		}
+
 		.register-button {
 			font-family: Montserrat;
 			border-radius: 4px;
