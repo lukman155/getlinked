@@ -1,45 +1,80 @@
 <script>
 	import Navbar from './../Navbar.svelte';
+
 	let teamName = '';
 	let email = '';
 	let topic = '';
 	let message = '';
 
-	async function handleSubmit() {
-		// Create a JSON object with the form data
-		const formData = {
-			first_name: teamName,
-			email,
-			phone_number: topic,
-			message
-		};
+	let modalVisible = false;
 
-		try {
-			// Send a POST request to the contact form endpoint
-			const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(formData)
-			});
+	const handleSubmit = async (event) => {
+    event.preventDefault();
 
-			if (response.ok) {
-				// Contact form submission was successful, you can show a success message here
-				console.log('Contact form submission successful');
-			} else {
-				// Handle errors or show error messages
-				console.error('Contact form submission failed');
-			}
-		} catch (error) {
-			console.error('An error occurred:', error);
-		}
-	}
+    // Perform form validation here
+    if (!teamName || !topic || !email || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const contactFormData = {
+      email,
+      first_name: teamName, // Assuming teamName corresponds to first_name
+      message,
+    };
+
+    try {
+      const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactFormData),
+      });
+
+      if (response.status === 201) {
+        // Contact form submission successful
+        // You can handle success as needed, e.g., show a success message or redirect
+        console.log('Contact form submission successful');
+      } else {
+        // Contact form submission failed
+        // You can handle errors as needed, e.g., show an error message
+        console.error('Contact form submission failed');
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+    }
+  };
+
 </script>
 
 <Navbar />
 
 <section>
+
+	{#if modalVisible}
+		<div class="modal show">
+			<img class="star sa1" src="star1-reg-mb.png" alt="star" />
+			<img class="star sa2" src="star2-reg-mb.png" alt="star" />
+			<img class="star sa3" src="star3-reg-mb.png" alt="star" />
+
+			<div class="modal-content">
+				<div class="image-con">
+					<img src="check-modal-responsive.png" alt="check" class="check-modal" />
+					<img src="man-modal-responsive.png" alt="man-dance" class="man-modal" />
+				</div>
+				<p class="p1">Congratulations you have successfully Registered!</p>
+				<div class="wocon">
+					<p class="p2">
+						Yes, it was easy and you did it! check your mail box for next step
+						<img src="woman-modal-responsive.png" alt="woman" />
+					</p>
+				</div>
+				<a href="/" class="back-btn">Back</a>
+			</div>
+		</div>
+	{/if}
+
 	<img class="star s1" src="star1-con-mb.png" alt="star" />
 	<img class="star s2" src="star2-con-mb.png" alt="star" />
 	<img class="star s3" src="star3-con-mb.png" alt="star" />
@@ -107,6 +142,38 @@
 </section>
 
 <style>
+
+	.modal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(21, 14, 40, 0.93);
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+
+	.modal.show {
+		display: flex;
+	}
+
+	.modal-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-radius: 5px;
+		border: 1px solid #d434fe;
+		background: rgba(255, 255, 255, 0.01);
+		padding: 27.08px 0;
+		border-radius: 5px;
+		text-align: center;
+		position: relative;
+	}
+
 	.desk {
 		display: none;
 	}
@@ -312,6 +379,18 @@
 	}
 
 	@media (min-width: 880px) {
+
+		.modal-content {
+			width: 699px;
+			height: 664px;
+			padding: 0;
+		}
+
+		.modal-content > .p1 {
+			font-size: 32px;
+			max-width: 574px;
+		}
+
 		.mobile {
 			display: none;
 		}
@@ -345,8 +424,7 @@
 			margin: 0;
 		}
 
-		form {
-		}
+
 
 		.form-con > h3 {
 			margin: 0;

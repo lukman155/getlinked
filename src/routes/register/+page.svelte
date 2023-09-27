@@ -6,14 +6,14 @@
 	const baseUrl = 'https://backend.getlinked.ai';
 
 	let teamName = '';
-	let phone = '';
-	let email = '';
-	let projectTopic = '';
-	let categoryId = ''; // Use categoryId to store the selected category ID
-	let groupSize = '';
-	let terms = false;
+  let phone = '';
+  let email = '';
+  let projectTopic = '';
+  let categoryId = ''; // Store the selected category's ID
+  let groupSize = '';
+  let terms = false;
 
-	let modalVisible = false;
+	let modalVisible = true;
 
 	let categories = [];
 
@@ -41,49 +41,54 @@
 		fetchCategories();
 	});
 
-	function handleSubmit() {
-		// Prepare your form data and make the registration POST request here
-		// Example:
-		modalVisible = true
-		const formData = {
-			teamName,
-			phone,
-			email,
-			projectTopic,
-			category: Number(categoryId), // Convert categoryId to a number
-			groupSize,
-			terms
-		};
+	const handleSubmit = async (event) => {
+    event.preventDefault();
 
-		// Make the POST request to your registration endpoint
-		fetch(`${baseUrl}/hackathon/registration`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(formData)
-		})
-			.then((response) => {
-				// Handle the response here, e.g., show a success message and reset the form
-				if (response.ok) {
-					modalVisible = true; // Show success modal
-					// Reset form fields
-					teamName = '';
-					phone = '';
-					email = '';
-					projectTopic = '';
-					categoryId = ''; // Clear selected category
-					groupSize = '';
-					terms = false;
-				} else {
-					// Handle the error response, e.g., show an error message
-					console.error('Registration failed');
-				}
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
-	}
+    // Perform form validation here
+    if (!teamName || !phone || !email || !projectTopic || !categoryId || !groupSize) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    if (!terms) {
+      alert('You must accept the privacy policy to register.');
+      return;
+    }
+
+    const registrationData = {
+      email,
+      phone_number: phone,
+      team_name: teamName,
+      group_size: parseInt(groupSize),
+      project_topic: projectTopic,
+      category: parseInt(categoryId),
+      privacy_poclicy_accepted: terms,
+    };
+
+    try {
+      const response = await fetch('https://backend.getlinked.ai/hackathon/registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registrationData),
+      });
+
+      if (response.status === 201) {
+        // Registration successful
+        // You can handle success as needed, e.g., show a success message or redirect
+        console.log('Registration successful');
+				modalVisible = true;
+      } else {
+        // Registration failed
+        // You can handle errors as needed, e.g., show an error message
+        console.error('Registration failed');
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+    }
+  };
+
 </script>
 
 <Navbar />
@@ -588,9 +593,16 @@
 	}
 
 	@media (min-width: 880px) {
+
 		.modal-content {
 			width: 699px;
 			height: 664px;
+			padding: 0;
+		}
+
+		.modal-content > .p1 {
+			font-size: 32px;
+			max-width: 574px;
 		}
 
 		h2 {
@@ -605,10 +617,7 @@
 			justify-content: left;
 		}
 
-		.modal-content > .p1 {
-			font-size: 32px;
-			max-width: 574px;
-		}
+
 
 		.p2 {
 			font-size: 14px;
