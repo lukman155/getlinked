@@ -13,7 +13,7 @@
   let groupSize = '';
   let terms = false;
 
-	let modalVisible = true;
+	let modalVisible = false;
 
 	let categories = [];
 
