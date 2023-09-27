@@ -3,7 +3,7 @@
 	import { inview } from 'svelte-inview';
 	let isInView = false;
 	const options = {
-		// You can configure rootMargin and other options here.
+		rootMargin: '60%',
 	};
 
 
