@@ -9,42 +9,42 @@
 	let modalVisible = false;
 
 	const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    // Perform form validation here
-    if (!teamName || !topic || !email || !message) {
-      alert('Please fill in all required fields.');
-      return;
-    }
+  // Perform form validation here
+  if (!teamName || !topic || !email || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
 
-    const contactFormData = {
-      email,
-      first_name: teamName, // Assuming teamName corresponds to first_name
-      message,
-    };
-
-    try {
-      const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contactFormData),
-      });
-
-      if (response.status === 201) {
-        // Contact form submission successful
-        // You can handle success as needed, e.g., show a success message or redirect
-        console.log('Contact form submission successful');
-      } else {
-        // Contact form submission failed
-        // You can handle errors as needed, e.g., show an error message
-        console.error('Contact form submission failed');
-      }
-    } catch (error) {
-      console.error('Error occurred:', error);
-    }
+  const contactFormData = {
+    email,
+    first_name: teamName, // Assuming teamName corresponds to first_name
+    message,
   };
+
+  try {
+    const response = await fetch('https://backend.getlinked.ai/hackathon/contact-form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(contactFormData),
+    });
+
+    if (response.status === 201) {
+      // Contact form submission successful
+      // You can handle success as needed, e.g., show a success message or redirect
+      console.log('Contact form submission successful');
+    } else {
+      // Contact form submission failed
+      // You can handle errors as needed, e.g., show an error message
+      console.error('Contact form submission failed');
+    }
+  } catch (error) {
+    console.error('Error occurred:', error);
+  }
+};
 
 </script>
 
