@@ -20,9 +20,9 @@
 		</svg>
 	</button>
 	<div class="links">
-		<a href="/" class="nav-link" title="Timeline">Timeline</a>
-		<a href="/" class="nav-link" title="Overview">Overview</a>
-		<a href="/" class="nav-link" title="FAQs">FAQs</a>
+		<a href="#time" class="nav-link" title="Timeline">Timeline</a>
+		<a href="#intro" class="nav-link" title="Overview">Overview</a>
+		<a href="#faq" class="nav-link" title="FAQs">FAQs</a>
 		<a href="/contact-page" class="nav-link" title="Contact">Contact</a>
 		<a href="/register" class="register-button" title="Register">Register</a>
 	</div>
@@ -67,9 +67,9 @@
 		</div>
 	</button>
 	<div class="links">
-		<a href="/" class="nav-link" title="Timeline">Timeline</a>
-		<a href="/" class="nav-link" title="Overview">Overview</a>
-		<a href="/" class="nav-link" title="FAQs">FAQs</a>
+		<a href="#time" class="nav-link" title="Timeline">Timeline</a>
+		<a href="#intro" class="nav-link" title="Overview">Overview</a>
+		<a href="#faq" class="nav-link" title="FAQs">FAQs</a>
 		<a href="/contact-page" class="nav-link" title="Contact">Contact</a>
 		<a href="/register" class="register-button" title="Register">Register</a>
 	</div>

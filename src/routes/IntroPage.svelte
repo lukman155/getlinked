@@ -6,7 +6,7 @@
 	};
 </script>
 
-<section class="intro-page">
+<section class="intro-page" id="intro" >
 	<img class="star s1" src="star1-intro-mb.png" alt="star" />
 	<img class="star s2" src="star2-intro-mb.png" alt="star" />
 

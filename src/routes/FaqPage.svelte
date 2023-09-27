@@ -47,7 +47,7 @@
 	}
 </script>
 
-<section class="faq-page">
+<section class="faq-page" id="faq">
 	<img class="star s1" src="star1-faq-mb.png" alt="star" />
 	<img class="star s2" src="star2-faq-mb.png" alt="star" />
 	<img class="star s3" src="star3-faq-mb.png" alt="star" />
@@ -76,7 +76,7 @@
 			 on:click={() => toggleQuestion(index)}>
 					<div class="ask" aria-role="button">
 						<p>{question.question}</p>
-						<p class="plus">+</p>
+						<p class="plus">{isOpen[index] ? '-' : '+'}</p>
 					</div>
 					<div
 						class="answer"

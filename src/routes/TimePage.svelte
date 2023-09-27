@@ -6,7 +6,7 @@
 	};
 </script>
 
-<section class="time-page">
+<section class="time-page" id="time">
 	<img class="star s1" src="star1-time-mb.png" alt="star" />
 	<img class="star s2" src="star2-time-mb.png" alt="star" />
 	<img class="star s3" src="star3-time-mb.png" alt="star" />
