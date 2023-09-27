@@ -25,9 +25,9 @@
 
 		<div class="nav-links">
 			<h2>Useful Links</h2>
-			<a href="/" class="term-link">Overview</a>
-			<a href="/" class="term-link">Timeline</a>
-			<a href="/" class="term-link">FAQs</a>
+			<a href="/#intro" class="term-link">Overview</a>
+			<a href="/#time" class="term-link">Timeline</a>
+			<a href="/#faq" class="term-link">FAQs</a>
 			<a href="/register" class="term-link">Register</a>
 			<div class="socials">
 				<h3>Follow us</h3>
